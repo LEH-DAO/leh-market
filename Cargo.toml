@@ -1,0 +1,47 @@
+[workspace]
+members = [
+    "bin/*",
+    "programs/mango-v4",
+    "lib/*",
+]
+
+[workspace.dependencies]
+anstyle = { version="1.0.0"}
+anstyle-query = { version = "1.0.0"}
+clap_lex = { version="0.5.0"}
+anchor-client = "0.28.0"
+anchor-lang = "0.28.0"
+anchor-spl = "0.28.0"
+fixed = { git = "https://github.com/blockworks-foundation/fixed.git", branch = "v1.11.0-borsh0_10-mango" }
+pyth-sdk-solana = "0.8.0"
+# commit c85e56d (0.5.10 plus dependency updates)
+serum_dex = { git = "https://github.com/openbook-dex/program.git", default-features=false }
+mango-feeds-connector = "0.2.1"
+
+# 1.16.7+ is required due to this: https://github.com/blockworks-foundation/mango-v4/issues/712
+clap = {version = "3.2.25"}
+cargo-platform = { version = "0.1.4" }
+clap_derive = { version = "3.2.25" }
+clap-builder = { version = "4.3.24" }
+anstyle-parse = { version = "0.2.1" }
+solana-address-lookup-table-program = "~1.16.7"
+solana-account-decoder = "~1.16.7"
+solana-client = "~1.16.7"
+solana-logger = "~1.16.7"
+solana-program = "~1.16.7"
+solana-program-test = "~1.16.7"
+solana-rpc = "~1.16.7"
+solana-sdk = { version = "~1.16.7", default-features = false }
+solana-transaction-status = { version = "~1.16.7" }
+anstream = { version="0.6.0"}
+
+
+
+libc = { version="0.2.149"}
+
+[profile.release]
+overflow-checks = true
+
+[patch.crates-io]
+# for gzip encoded responses
+jsonrpc-core-client = { git = "https://github.com/ckamm/jsonrpc.git", branch = "ckamm/http-with-gzip" }
